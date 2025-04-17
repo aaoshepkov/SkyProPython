@@ -10,12 +10,12 @@ def get_mask_card_number(card_num: str) -> str:
 
 
 def get_mask_account(acc_num: str) -> str:
-    '''
+    """
     Функция принимает номер счета и приводит его к виду **XXXX
     :param acc_num: строка 20 символов
     :return: строка вида **XXXX
-    '''
+    """
     if len(acc_num) == 20:
-        return f'Номер счета **{acc_num[-4:]}'
+        return f"Номер счета **{acc_num[-4:]}"
     else:
         return f"Вы ввели {len(acc_num)} цифр(ы). Нужно ввести 20 цифр"
