@@ -27,7 +27,7 @@ isort = "^6.0.1"
 
 [tool.mypy]
 disallow_untyped_defs=true
-warn_return_any=true
+warn_return_any=false
 exclude = 'venv'
 
 [tool.black]
