@@ -1,5 +1,5 @@
 from datetime import datetime
-from masks import get_mask_account, get_mask_card_number
+from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(card_or_acc_num: str) -> str:
@@ -17,10 +17,10 @@ def mask_account_card(card_or_acc_num: str) -> str:
     elif len(acc_num) == 20:
         return get_mask_account(acc_num)
     else:
-        return f"Номер должен содержать 16 (карта) или 20 (счет) цифр"
+        return "Номер должен содержать 16 (карта) или 20 (счет) цифр"
 
 
-def get_date(date: str):
+def get_date(date: str) -> str:
     """
     обрабатывает строку с датой и временем и переводит ее в формат dd.mm.yyyy
     :param date: строка вида "2024-03-11T02:26:18.671407"
