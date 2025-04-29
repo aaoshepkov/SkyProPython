@@ -16,6 +16,12 @@ git clone https://github.com/aaoshepkov/SkyProPython.git
 https://python-poetry.org/docs/#installing-with-the-official-installer
 ```
 
+3. Установите зависимости:
+```
+poetry install
+```
+
+
 ## Использование:
 
 1. Логика находится в файле main.py
