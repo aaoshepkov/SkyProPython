@@ -26,4 +26,4 @@ https://python-poetry.org/docs/#installing-with-the-official-installer
 
 ## Лицензия:
 
-Проект распространяется под [лицензией MIT](LICENSE).
+
