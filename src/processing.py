@@ -1,7 +1,10 @@
 from datetime import datetime
 
 
-def filter_by_state(transactions_list: list, state="EXECUTED") -> list:
+from mypy.types import AnyType
+
+
+def filter_by_state(transactions_list: list[dict[str, AnyType]], state: str = "EXECUTED") -> list:
     """
     :param transactions_list: a list of dictionaries(transactions with id, state, date)
     :param state: optional param, by default is 'EXECUTED'
@@ -15,7 +18,7 @@ def filter_by_state(transactions_list: list, state="EXECUTED") -> list:
     return filtered_list
 
 
-def sort_by_date(transactions_list: list, sorting_asc=True) -> list:
+def sort_by_date(transactions_list: list, sorting_asc: bool = True) -> list:
     """
     :param transactions_list: a list of dictionaries(transactions with id, state, date)
     :param sorting_asc: if True, sorts from newer to older. If False, sorts from older to newer transaction.
