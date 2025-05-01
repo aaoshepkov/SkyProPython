@@ -26,6 +26,3 @@ def get_date(date: str) -> str:
     """
     date_formatted = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%f")
     return date_formatted.strftime("%d.%m.%Y")
-
-
-print(mask_account_card("Счет 73654108430135874305"))
