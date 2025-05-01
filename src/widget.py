@@ -29,6 +29,8 @@ def get_date(date: str) -> str:
     """
     date_formatted = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%f")
     return date_formatted.strftime("%d.%m.%Y")
+
+
 print(get_mask_account("Visa Platinum 7000792289606361"))
 
-#комментарий для коммита в новую ветку
+# комментарий для коммита в новую ветку
