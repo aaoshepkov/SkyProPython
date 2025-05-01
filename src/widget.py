@@ -10,15 +10,12 @@ def mask_account_card(card_or_acc_num: str) -> str:
     :return: возвращает маскированный номер карты или номер счета (маскировка производится модулем masks.py)
     """
     acc_num = card_or_acc_num.split()
-    for num in acc_num:
-        if num.isdigit() and len(num) == 16:
-            return get_mask_card_number(num)
-    # if len(acc_num) == 16:
-    #     return get_mask_card_number(acc_num)
-    # elif len(acc_num) == 20:
-    #     return get_mask_account(acc_num)
-    # else:
-    #     return "Номер должен содержать 16 (карта) или 20 (счет) цифр"
+    if len(acc_num) == 16:
+        return get_mask_card_number(acc_num)
+    elif len(acc_num) == 20:
+        return get_mask_account(acc_num)
+    else:
+        return "Номер должен содержать 16 (карта) или 20 (счет) цифр"
 
 
 def get_date(date: str) -> str:
@@ -30,7 +27,3 @@ def get_date(date: str) -> str:
     date_formatted = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%f")
     return date_formatted.strftime("%d.%m.%Y")
 
-
-print(get_mask_account("Visa Platinum 7000792289606361"))
-
-# комментарий для коммита в новую ветку
