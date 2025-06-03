@@ -24,3 +24,13 @@ def mask_account_card_data():
             "Visa Platinum 8990922113665229",
             "Visa Gold 5999414228426353",
             "Счет 73654108430135874305")
+
+
+@pytest.fixture
+def correct_card_number():
+    return '4016223056204055'
+
+
+@pytest.fixture
+def correct_account_number():
+    return "2501620256234890001"
