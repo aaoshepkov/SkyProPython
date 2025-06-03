@@ -1,2 +1,21 @@
-def test_sum(number_list):
-    assert sum(number_list) == 15
+import pytest
+from src.masks import get_mask_card_number
+from src.masks import get_mask_account
+
+
+@pytest.fixture
+def correct_card_number():
+    return '4016223056204055'
+
+
+@pytest.fixture
+def correct_account_number():
+    return "2501620256234890001"
+
+
+def test_get_mask_card_number(correct_card_number):
+    assert get_mask_card_number(correct_card_number) == 'Номер карты 4016 22** **** 4055'
+
+
+def test_get_mask_account(correct_account_number):
+    assert get_mask_account(correct_account_number) == "Номер счета **0001"
