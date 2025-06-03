@@ -1,8 +1,7 @@
 import pytest
-import src.widget
-from tests.conftest import mask_account_card_data
+from src.widget import mask_account_card
 
 
-@pytest.mark.parametrize('num,  expected', )
-def test_widget(mask_account_card_data):
-    assert src.widget.mask_account_card(mask_account_card_data()) == 0
+@pytest.mark.parametrize('num,  expected', [("4016223056204055", "Номер карты 4016 22** **** 4055"), ("2501620256234890001", "Номер счета **0001")])
+def test_widget(num, expected):
+    assert mask_account_card(num) == expected

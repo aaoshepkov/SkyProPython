@@ -10,7 +10,7 @@ def test_get_mask_card_number(correct_card_number):
     :param correct_card_number: '4016223056204055'
     :return: test has to be in PASSED status
     '''
-    assert get_mask_card_number(correct_card_number) == 'Номер карты 4016 22** **** 4055'
+    assert get_mask_card_number(correct_card_number) == "Номер карты 4016 22** **** 4055"
 
 
 def test_get_mask_account(correct_account_number):
