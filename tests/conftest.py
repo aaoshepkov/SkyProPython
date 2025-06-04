@@ -1,4 +1,5 @@
-from typing import Tuple, List, Dict, Any
+from typing import Any, Dict, List, Tuple
+
 import pytest
 
 
