@@ -1,5 +1,4 @@
 from src.processing import filter_by_state
-from tests.conftest import filter_by_state_data
 
 
 def test_filter_by_state(filter_by_state_data):
