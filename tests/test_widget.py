@@ -11,6 +11,7 @@ def test_widget(num, expected):
     assert mask_account_card(num) == expected
 
 
-@pytest.mark.parametrize("date, expected", [("")])
+
+@pytest.mark.parametrize("date, expected", [("2025-06-04 20:53:23.315301", "04.06.2025")])
 def test_get_date(date, expected):
     assert get_date(date) == expected

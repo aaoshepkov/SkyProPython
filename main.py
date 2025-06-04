@@ -21,6 +21,4 @@ def initial_launch():
         current_date = datetime.datetime.now()
         operation_date = str(current_date)
         print(f"Дата операции: {get_date(operation_date)}")
-
-
-
+        print(current_date)
