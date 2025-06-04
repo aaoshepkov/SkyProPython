@@ -1,13 +1,14 @@
+from typing import Tuple, List, Dict, Any
 import pytest
 
 
 @pytest.fixture
-def number_list():
+def number_list() -> List[int]:
     return [1, 2, 3, 4, 5]
 
 
 @pytest.fixture
-def filter_by_state_data():
+def filter_by_state_data() -> List[Dict[str, Any]]:
     return ([{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'},
              {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'},
              {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'},
@@ -15,7 +16,7 @@ def filter_by_state_data():
 
 
 @pytest.fixture
-def mask_account_card_data():
+def mask_account_card_data() -> Tuple[str, str, str, str, str, str, str, str]:
     return ("Maestro 1596837868705199",
             "Счет 64686473678894779589",
             "MasterCard 7158300734726758",
@@ -27,10 +28,10 @@ def mask_account_card_data():
 
 
 @pytest.fixture
-def correct_card_number():
+def correct_card_number() -> str:
     return '4016223056204055'
 
 
 @pytest.fixture
-def correct_account_number():
+def correct_account_number() -> str:
     return "25016202562348900001"

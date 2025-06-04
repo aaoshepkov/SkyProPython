@@ -1,7 +1,8 @@
+from typing import List, Dict, Any
 from src.processing import filter_by_state
 
 
-def test_filter_by_state(filter_by_state_data):
+def test_filter_by_state(filter_by_state_data: List[Dict[str, Any]]) -> None:
     '''
     testin correct data filtering
     :return:

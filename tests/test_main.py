@@ -1,4 +1,5 @@
 import pytest
+from typing import List, Dict, Any
 from src.processing import filter_by_state
 
 
@@ -12,5 +13,5 @@ expected = [{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.5
 
 
 @pytest.mark.parametrize("data, expected", [(data, expected)])
-def test_main(data, expected):
+def test_main(data: List[Dict[str, Any]], expected: List[Dict[str, Any]]) -> None:
     assert filter_by_state(data) == expected
