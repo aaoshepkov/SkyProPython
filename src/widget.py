@@ -1,4 +1,5 @@
 from datetime import datetime
+
 from src.masks import get_mask_account, get_mask_card_number
 
 
@@ -24,5 +25,5 @@ def get_date(date: str) -> str:
     :param date: строка вида "2024-03-11T02:26:18.671407"
     :return: строка вида "11.03.2024"
     """
-    date_formatted = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%f")
+    date_formatted = datetime.strptime(date, "%Y-%m-%d %H:%M:%S.%f")
     return date_formatted.strftime("%d.%m.%Y")

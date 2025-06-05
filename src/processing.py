@@ -1,6 +1,5 @@
 from datetime import datetime
 
-
 from mypy.types import AnyType
 
 
@@ -12,7 +11,7 @@ def filter_by_state(transactions_list: list[dict[str, AnyType]], state: str = "E
     """
     filtered_list = []
     for transaction in transactions_list:
-        if transaction.get('state') == state:
+        if transaction.get("state") == state:
             filtered_list.append(transaction)
     return filtered_list
 
