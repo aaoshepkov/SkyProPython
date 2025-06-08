@@ -1,45 +1,6 @@
-from typing import Any, Dict, List, Tuple
+from typing import List, Dict, Any, Iterator
 
-import pytest
-
-
-@pytest.fixture
-def number_list() -> List[int]:
-    return [1, 2, 3, 4, 5]
-
-
-@pytest.fixture
-def filter_by_state_data() -> List[Dict[str, Any]]:
-    return ([{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'},
-             {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'},
-             {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'},
-             {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}])
-
-
-@pytest.fixture
-def mask_account_card_data() -> Tuple[str, str, str, str, str, str, str, str]:
-    return ("Maestro 1596837868705199",
-            "Счет 64686473678894779589",
-            "MasterCard 7158300734726758",
-            "Счет 35383033474447895560",
-            "Visa Classic 6831982476737658",
-            "Visa Platinum 8990922113665229",
-            "Visa Gold 5999414228426353",
-            "Счет 73654108430135874305")
-
-
-@pytest.fixture
-def correct_card_number() -> str:
-    return '4016223056204055'
-
-
-@pytest.fixture
-def correct_account_number() -> str:
-    return "25016202562348900001"
-
-@pytest.fixture
-def transactions_list():
-    return (
+transactions = (
     [
         {
             "id": 939719570,
@@ -118,3 +79,45 @@ def transactions_list():
         }
     ]
 )
+
+def filter_by_currency(dct, cur):
+    """
+    Фильтрует транзакцию по коду(виду) валюты
+    :param dct: передается список, содержащий в себе словари с данными транзакций
+    :param cur: код валюты, по которому будет производиться фильтрация
+    :return:
+    """
+    return (x for x in dct if x.get("operationAmount").get("currency").get("code") == cur)
+
+# usd_transactions = filter_by_currency(transactions, "USD")
+# try:
+#     for _ in range(5):
+#         print(next(usd_transactions))
+# except StopIteration:
+#     print("Транзакций больше нет")
+
+
+def transaction_descriptions(dct: List[Dict[Any, Any]]):
+    """
+    Получаем описание транзакций
+    :param dct: передается список, содержащий в себе словари с данными транзакций
+    :return: Описание (значение по ключу "description")
+    """
+    return (x["description"] for x in dct if "description" in x)
+
+
+def card_number_generator(start: int, end: int):
+    """
+    Генерирует номера карт в заданном диапазоне от 0000 0000 0000 0001 до 9999 9999 9999 9999
+    :param start: указать начало диапазона
+    :param end: указать конец диапазона
+    :return:
+    """
+    current = start
+    while current <= end:
+        # Форматируем число в 16-значную строку с ведущими нулями
+        card_num = f"{current:016d}"
+        # Разбиваем на группы по 4 цифры и объединяем через пробел
+        formatted_num = ' '.join([card_num[i:i+4] for i in range(0, 16, 4)])
+        yield formatted_num
+        current += 1
