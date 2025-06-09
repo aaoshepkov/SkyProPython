@@ -1,7 +1,7 @@
 from typing import Any, Dict, List
 
 
-def filter_by_currency(dct, cur):
+def filter_by_currency(dct: List[Dict[Any, Any]], cur: str):
     """
     Фильтрует транзакцию по коду(виду) валюты
     :param dct: передается список, содержащий в себе словари с данными транзакций
