@@ -1,6 +1,5 @@
 import pytest
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
-from tests.conftest import transactions_list
 
 
 @pytest.mark.parametrize("data, expected", [([
