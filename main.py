@@ -1,7 +1,9 @@
 import datetime
 from src.widget import get_date, mask_account_card
+from src.decorators import log
 
 
+@log(filename="my.log")
 def initial_launch():
     try:
         while True:
