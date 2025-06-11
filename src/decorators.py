@@ -20,7 +20,7 @@ def log(filename=None):
                     f"Время выполнения: {execution_time:.4f} сек.\n\n"
                 )
 
-                if filename:
+                if filename is not None:
                     with open(filename, "a", encoding="utf-8") as file:
                         file.write(success_message)
                 else:
